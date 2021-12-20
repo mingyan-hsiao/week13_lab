@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Calculator</title>
+    <style>
+        .inputlen{
+            width:300px;
+            height:25px;
+            border-radius:5px;
+        }
+        .button1{color:white; 
+                 background-color: #996633;
+        }
+        .button1:hover{background-color: brown;
+                       color: black;
+        }
+        body{font-family: Arial, Helvetica, sans-serif;}
+        div {
+          border: 1px solid black;
+          background-color: lightgray;
+          margin-top: 50px;
+          margin-right: 450px;
+          margin-left: 450px;
+          text-align:center;
+          border-radius:10px;
+        }
+
+    </style>
+</head>
+
+<body>
+		
+	<form action="#">
+    <div>
+	<h1>JS Calculator</h1>
+	<p><label>Number 1</label></p>
+	<p>
+    	<input id="number1" type="number" class="inputlen" style="border-width:1px;">
+	</p>
+
+	<p><label>Number 2</label></p>
+    <p>
+		<input id="number2" type="number" class="inputlen" style="border-width:1px;">
+    </p>
+    
+
+	<p>Operate way?</p>
+    <p>
+		<select id="operateWay" class="inputlen">
+				<option value="plus" selected>+</option>
+				<option value="minus">-</option>
+				<option value="multiply">*</option>
+				<option value="divide">/</option>
+		</select>
+    </p>
+    
+    <input id="run" type="button" value="Add" class="inputlen button1"><br>
+    <p>Result = <span id="total"></span></p>
+
+    <script>
+        document.getElementById("run").onclick = function(){
+            var num1 = Number(document.getElementById("number1").value);
+            var num2 = Number(document.getElementById("number2").value);
+            var way = document.getElementById("operateWay").value;
+            var result;
+            if(way == "plus"){
+                result = Plus(num1,num2);
+            }else if(way == "minus"){
+                result = Minus(num1,num2);
+            }else if(way == "multiply"){
+                result = Multiply(num1,num2);
+            }else{
+                result = Divide(num1,num2);
+            }
+            
+            document.getElementById("total").textContent = result;
+        }
+
+
+        function Plus(n1,n2){return(n1+n2);}
+        function Minus(n1,n2) {return(n1-n2);}
+        function Multiply(n1,n2) {return(n1*n2);}
+        function Divide(n1,n2) {return(n1/n2);}
+    </script>
+    </div>
+    </form>
+
+</body>
+</html>
